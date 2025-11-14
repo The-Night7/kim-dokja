@@ -35,6 +35,7 @@ Permet de **copier une aptitude active** déjà observée.
 - doit avoir étudié l'aptitude auparavant
 - la copie varie de **50% à 100%** selon sa compréhension
 - une seule copie active à la fois au high, 2 au god, 3 à l'exo, 4 au niveau 8
+- 2 bookmark jusqu'au elite, 3 au high, 4 au god, 6 au niveau 8
 - **restriction** : il doit avoir **au moins 3 stats ≥ la moitié de celles de la cible**
 
 ---
@@ -61,37 +62,6 @@ Pendant 10 secondes:
 - perception ralentie
 - précision augmentée
 - meilleure lecture des trajectoires
-
----
-
-## **🡆 Carte 5 : Way of the Wind**
-- rafales de vent
-- boost de vitesse
-- esquives aériennes courtes
-- course sur surfaces instables quelques secondes
-
----
-
-## **🡆 Carte 6 : Hour of Judgement**
-Doit déclarer l'adversaire comme « malveillant ».
-- dégâts ↑ 15%
-- défense ↑ 15%
-- durée: 15 secondes
-- 1 utilisation / combat
-
----
-
-## **🡆 Carte 7 : Electrification**
-Corps enveloppé d'électricité.
-- réflexes ↑
-- vitesse ↑ 15%
-- attaques électriques à courte et moyenne portée
-
----
-
-## **🡆 Carte 8 : Avatar**
-Crée un clone à 50 % de puissance.
-Durée: 10 secondes.
 
 ---
 

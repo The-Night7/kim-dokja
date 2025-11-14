@@ -76,6 +76,11 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        
+        /* Style pour l'image de secours */
+        .fallback-image {
+            display: none;
+        }
 
         .appearance-content {
             flex: 1;
@@ -199,7 +204,8 @@
                                 <ul>
                                     <li>doit avoir étudié l'aptitude auparavant</li>
                                     <li>la copie varie de <strong>50% à 100%</strong> selon sa compréhension</li>
-                                    <li>une seule copie active à la fois au high, 2 au god, 3 à l'exo, 4 au 8</li>
+                                    <li>une seule copie active à la fois au high, 2 au god, 3 à l'exo, 4 au niveau 8</li>
+                                    <li>2 bookmark jusqu'au elite, 3 au high, 4 au god, 6 au niveau 8</li>
                                     <li><strong>restriction</strong>: il doit avoir <strong>au moins 3 stats ≥ la moitié de celles de la cible</strong></li>
                                 </ul>
                             </div>
@@ -256,75 +262,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" data-card="5">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 5</h3>
-                                <p>Way of the Wind</p>
-                            </div>
-                            <div class="card-back">
-                                <h3>Way of the Wind</h3>
-                                <ul>
-                                    <li>rafales de vent</li>
-                                    <li>boost de vitesse</li>
-                                    <li>esquives aériennes courtes</li>
-                                    <li>course sur surfaces instables quelques secondes</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" data-card="6">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 6</h3>
-                                <p>Hour of Judgement</p>
-                            </div>
-                            <div class="card-back">
-                                <h3>Hour of Judgement</h3>
-                                <p>Doit déclarer l'adversaire comme « malveillant ».</p>
-                                <ul>
-                                    <li>dégâts ↑ 15%</li>
-                                    <li>défense ↑ 15%</li>
-                                    <li>durée: 15 secondes</li>
-                                    <li>1 utilisation / combat</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" data-card="7">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 7</h3>
-                                <p>Electrification</p>
-                            </div>
-                            <div class="card-back">
-                                <h3>Electrification</h3>
-                                <p>Corps enveloppé d'électricité.</p>
-                                <ul>
-                                    <li>réflexes ↑</li>
-                                    <li>vitesse ↑ 15%</li>
-                                    <li>attaques électriques à courte et moyenne portée</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" data-card="8">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 8</h3>
-                                <p>Avatar</p>
-                            </div>
-                            <div class="card-back">
-                                <h3>Avatar</h3>
-                                <p>Crée un clone à 50 % de puissance.</p>
-                                <p>Durée: 10 secondes.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -378,7 +315,7 @@
                 <div class="story-content">
                     <p>Kim Dokja a grandi dans un foyer difficile où les livres constituaient son seul refuge. Sa mère, qui travaillait souvent, lui offrait régulièrement de nouveaux romans. Il développa une obsession pour l'analyse des histoires, des personnages, des schémas narratifs.</p>
                     
-                    <p>À l'adolescence, il découvrit un roman fleuve en ligne nommé <em>Ways of Survival</em>. Il devint son unique lecteur fidèle. L'histoire devint son échappatoire et sa formation : il analysait chaque mise à jour, formulait des théories, apprenait à comprendre les gens comme des personnages.</p>
+                    <p>À l'adolescence, il découvrit un roman en ligne nommé <em>Ways of Survival</em>. Il devint son unique lecteur fidèle. L'histoire devint son échappatoire et sa formation : il analysait chaque mise à jour, formulait des théories, apprenait à comprendre les gens comme des personnages.</p>
                     
                     <p>Sa capacité s'éveilla tôt, sous forme d'une perception étrange du monde, comme s'il n'en faisait que lire les lignes. Cette « Fourth Wall » le protégea des brimades et d'un quotidien difficile, mais l'éloigna émotionnellement des autres.</p>
                     
@@ -390,7 +327,8 @@
                 <h2>Description Physique</h2>
                 <div class="appearance-container">
                     <div class="appearance-image">
-                        <img src="apparence.jpeg" alt="Kim Dokja" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Image+de+Kim+Dokja'; this.alt='Image non disponible'">
+                        <img src="apparence.jpeg" alt="Kim Dokja" id="character-image">
+                        <img src="https://styles.redditmedia.com/t5_2fmodd/styles/image_widget_3xdvijhl09h71.jpg?format=pjpg&s=d7ced27cb4e02ad5c4100ca2c8be59f25145a854" alt="Image non disponible" class="fallback-image" id="fallback-image">
                     </div>
                     <div class="appearance-content">
                         <ul>
@@ -401,7 +339,7 @@
                             <li>vêtements sobres : vestes sombres, chemises simples, rien de voyant</li>
                             <li>posture détendue mais calculatrice, gestes contrôlés, toujours observateur</li>
                         </ul>
-    </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -413,5 +351,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Gestion de l'image et de son fallback de manière moderne
+        document.addEventListener('DOMContentLoaded', function() {
+            const characterImage = document.getElementById('character-image');
+            const fallbackImage = document.getElementById('fallback-image');
+            
+            characterImage.addEventListener('error', function() {
+                characterImage.style.display = 'none';
+                fallbackImage.style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>
