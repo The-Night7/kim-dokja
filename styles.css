@@ -288,8 +288,9 @@ main {
 }
 
 .card-front {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    background-size: cover;
+    background: url('carte.jpg') center;
+    color: whitesmoke;
 }
 
 .card-front h3 {

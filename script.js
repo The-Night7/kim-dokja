@@ -1,3 +1,10 @@
+class Chart {
+    constructor(ctx, param2) {
+        
+    }
+
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation
     const navLinks = document.querySelectorAll('#main-nav a');
@@ -25,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const statChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Power', 'Defense', 'Recovery', 'Trick', 'Speed'],
+            labels: ['Power', 'Speed', 'Trick', 'Recovery', 'Defense'],
             datasets: [{
                 label: 'Kim Dokja',
-                data: [4, 3, 4, 8, 4],
+                data: [5, 5, 8, 5, 4],
                 backgroundColor: 'rgba(52, 152, 219, 0.2)',
                 borderColor: 'rgba(52, 152, 219, 1)',
                 pointBackgroundColor: 'rgba(52, 152, 219, 1)',
