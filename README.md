@@ -14,6 +14,15 @@
 # 🔵 **CAPACITÉ : Reader's Deck**
 **Nature :** Pouvoir hautement stratégique, non élémentaire, basé sur l'interprétation, l'information et la copie partielle.
 
+**Description générale :** Reader's Deck permet à Kim Dokja d'analyser, comprendre et exploiter les capacités et faiblesses de ses adversaires. Ce pouvoir se manifeste sous forme d'un jeu de cartes mentales qu'il peut "tirer" et activer pendant un combat. Chaque carte représente une aptitude différente liée à l'analyse, la copie ou la perception améliorée. Sa force réside dans sa capacité à s'adapter à n'importe quelle situation en choisissant les cartes les plus appropriées.
+
+**Fonctionnement :** Avant chaque combat ou confrontation, Kim Dokja sélectionne 4 cartes parmi son deck complet. Ces cartes deviennent alors ses aptitudes actives pour la durée de l'affrontement. Le choix des cartes doit être stratégique et adapté à l'adversaire ou à la situation.
+
+**Limitations :** 
+- Ne peut pas changer de cartes en cours de combat
+- Chaque carte a ses propres conditions d'utilisation et limites
+- L'efficacité dépend fortement de sa capacité d'analyse et de sa connaissance préalable
+
 ## **Passif (débloqué au lvl 5+) : Fourth Wall**
 Un voile d'aura défensive entoure l'esprit de Kim Dokja en permanence.
 
