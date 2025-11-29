@@ -7,353 +7,364 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Ajout de styles spécifiques pour améliorer l'affichage des cartes */
-        .card {
-            height: 350px; /* Augmentation de la hauteur des cartes */
-        }
-
+        /* Styles conservés */
+        .card { height: 350px; }
         .card-back {
             padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Aligner le contenu en haut */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
+        .card-back h3 { margin-bottom: 10px; font-size: 1.2rem; }
+        .card-back p { margin-bottom: 8px; font-size: 0.9rem; }
 
-        .card-back h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .card-back p {
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            text-align: left;
-        }
-
-        .card-back h4 {
-            margin: 8px 0 5px;
-            font-size: 1rem;
-        }
-
-        .card-back ul {
-            padding-left: 15px;
-            margin-bottom: 5px;
-        }
-
-        .card-back li {
-            margin-bottom: 4px;
-            font-size: 0.9rem;
-            line-height: 1.3;
-        }
-
-        /* Style pour la carte Bookmark qui a beaucoup de contenu */
-        .card[data-card="1"] .card-back {
-            font-size: 0.85rem;
-        }
-
-        .card[data-card="1"] .card-back li {
-            margin-bottom: 3px;
-        }
-
-        /* Style pour la section apparence avec image */
-        .appearance-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .appearance-image {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-        }
-
-        .appearance-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Style pour l'image de secours */
-        .fallback-image {
-            display: none;
-        }
-
-        .appearance-content {
-            flex: 1;
-            min-width: 300px;
-        }
-
+        /* Styles pour l'apparence */
+        .appearance-container { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+        .appearance-image { flex: 1; min-width: 300px; max-width: 400px; }
+        .appearance-image img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        .appearance-content { flex: 1; min-width: 300px; }
         @media (max-width: 768px) {
-            .appearance-container {
-                flex-direction: column;
-            }
+            .appearance-container { flex-direction: column; }
+            .appearance-image { max-width: 100%; margin-bottom: 20px; }
+        }
 
-            .appearance-image {
-                max-width: 100%;
-                margin-bottom: 20px;
-            }
+        /* STYLE POUR LE TABLEAU D'ANALYSE */
+        .analysis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .analysis-table th, .analysis-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .analysis-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .analysis-table tr:hover {
+            background-color: #f5f7fa;
+        }
+        .analysis-table td:first-child {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Style pour les sous-titres de capacité */
+        .cap-subtitle {
+            color: #2980b9;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            display: block;
+            border-bottom: 1px solid #eee;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <h1>FICHE — Kim Dokja</h1>
-                <div class="level-badge">
-                    <span class="level">Niveau: 6.5</span>
-                    <span class="potential">Potentiel: 10.0</span>
+<div class="container">
+    <header>
+        <div class="header-content">
+            <h1>FICHE — Kim Dokja</h1>
+            <div class="level-badge">
+                <span class="level">Niveau: 6.5 (God-tier)</span>
+                <span class="potential">Potentiel: 10.0</span>
+            </div>
+        </div>
+    </header>
+
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#info" class="active">Infos</a></li>
+            <li><a href="#capacity">Capacité</a></li>
+            <li><a href="#deck">Deck</a></li>
+            <li><a href="#analysis">Analyse</a></li>
+            <li><a href="#stats">Stats</a></li>
+            <li><a href="#story">Histoire</a></li>
+            <li><a href="#appearance">Apparence</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="info" class="section active">
+            <h2>Informations Générales</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Prénom:</span>
+                    <span class="value">Kim</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Nom:</span>
+                    <span class="value">Dokja</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Âge:</span>
+                    <span class="value">17 ans</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Sexe:</span>
+                    <span class="value">Masculin</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Orientation:</span>
+                    <span class="value">Bisexuel</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Établissement:</span>
+                    <span class="value">Rowden High School</span>
+                </div>
+                <div class="info-item full-width">
+                    <span class="label">Profil Psychologique:</span>
+                    <span class="value">Stratège calculateur dissimulé sous une façade sociale affable. Il observe les gens comme des personnages d'un livre. Leader naturel mais distant, il privilégie la préparation intellectuelle à la confrontation brute.</span>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <nav id="main-nav">
-            <ul>
-                <li><a href="#info" class="active">Informations</a></li>
-                <li><a href="#capacity">Capacité</a></li>
-                <li><a href="#deck">Deck</a></li>
-                <li><a href="#stats">Stats</a></li>
-                <li><a href="#story">Histoire</a></li>
-                <li><a href="#appearance">Apparence</a></li>
-            </ul>
-        </nav>
+        <section id="capacity" class="section">
+            <h2><span class="blue-dot">🔵</span> CAPACITÉ : Reader's Deck</h2>
+            <div class="capacity-details">
+                <p><strong>Nature:</strong> Méta-Capacité / Analyse & Mimétisme.</p>
 
-        <main>
-            <section id="info" class="section active">
-                <h2>Informations Générales</h2>
-                <div class="info-grid">
-                    <div class="info-item">
-                        <span class="label">Prénom:</span>
-                        <span class="value">Kim</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Nom:</span>
-                        <span class="value">Dokja</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Âge:</span>
-                        <span class="value">16 ans</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Sexe:</span>
-                        <span class="value">Masculin</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Orientation:</span>
-                        <span class="value">Bisexuel</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">Établissement:</span>
-                        <span class="value">Rowden</span>
-                    </div>
-                    <div class="info-item full-width">
-                        <span class="label">Comportement:</span>
-                        <span class="value">Manipulateur, charmeur social, stratège ; il inspire confiance pour mieux diriger les autres.</span>
-                    </div>
-                </div>
-            </section>
+                <div class="capacity-description">
+                    <h3>Mécaniques de la Capacité :</h3>
 
-            <section id="capacity" class="section">
-                <h2><span class="blue-dot">🔵</span> CAPACITÉ : Reader's Deck</h2>
-                <div class="capacity-details">
-                    <p><strong>Nature:</strong> Pouvoir hautement stratégique, non élémentaire, basé sur l'interprétation, l'information et la copie partielle.</p>
-                    
-                    <div class="capacity-description">
-                        <h3>Description générale:</h3>
-                        <p>Reader's Deck permet à Kim Dokja d'analyser, comprendre et exploiter les capacités et faiblesses de ses adversaires. Ce pouvoir se manifeste sous forme d'un jeu de cartes mentales qu'il peut "tirer" et activer pendant un combat. Chaque carte représente une aptitude différente liée à l'analyse, la copie ou la perception améliorée. Sa force réside dans sa capacité à s'adapter à n'importe quelle situation en choisissant les cartes les plus appropriées.</p>
+                    <span class="cap-subtitle">1. ANALYSE (Lecture de Flux)</span>
+                    <p>Permet de lire l'aura d'une cible pour révéler son <strong>Niveau</strong>, son <strong>Type</strong> (Projectile, Physique, Mental, etc.) et ses <strong>Stats</strong>.</p>
+                    <ul>
+                        <li><strong>Cible plus faible :</strong> Toutes les statistiques sont révélées.</li>
+                        <li><strong>Cible plus forte :</strong> La vision est partielle. Il ne perçoit que <em>(5 - Différence de niveau)</em> statistiques (minimum 1), en priorité les plus fortes hors trick.</li>
+                    </ul>
 
-                        <h3>Fonctionnement:</h3>
-                        <p>Avant chaque combat ou confrontation, Kim Dokja sélectionne 4 cartes parmi son deck complet. Ces cartes deviennent alors ses aptitudes actives pour la durée de l'affrontement. Le choix des cartes doit être stratégique et adapté à l'adversaire ou à la situation.</p>
-                        <h3>Limitations:</h3>
-                        <ul>
-                            <li>Ne peut pas changer de cartes en main en cours de combat</li>
-                            <li>Chaque carte a ses propres conditions d'utilisation et limites</li>
-                            <li>L'efficacité dépend fortement de sa capacité d'analyse et de sa connaissance préalable</li>
-                        </ul>
+                    <span class="cap-subtitle">2. BOOKMARK ("Copie")</span>
+                    <p>Permet de copier une aptitude active <strong>déjà observée et étudiée</strong> auparavant.</p>
+                    <ul>
+                        <li><strong>Efficacité :</strong> La copie varie de <strong>50% à 100%</strong> selon sa compréhension (déterminée par la différence de stat <em>Trick</em>).</li>
+                        <li><strong>Restriction Physique :</strong> Pour copier, Dokja doit posséder au moins <strong>3 stats ≥ la moitié</strong> de celles de la cible.</li>
+                    </ul>
+
+                    <span class="cap-subtitle">3. GESTION DES SLOTS (God-tier)</span>
+                    <p>En tant que God-tier (6.5), la capacité de traitement de Dokja est la suivante :</p>
+                    <ul>
+                        <li><strong>Mémoire (Bookmarks) :</strong> Il peut stocker jusqu'à <strong>4 capacités</strong> dans son deck.</li>
+                        <li><strong>Activation :</strong> Il peut utiliser <strong>2 copies actives</strong> simultanément.</li>
+                    </ul>
+
+                    <span class="cap-subtitle">4. ANNEXE (les infos utiles en cas de lvl up/lvl down)</span>
+                    <ul>
+                        <li>une seule copie active à la fois jusqu'au high, 2 au god, 3 à l'exo-god, 4 au niveau 8.0</li>
+                        <li>2 bookmark jusqu'au elite, 3 au high, 4 au god, 6 au niveau 8.0</li>
+                    </ul>
+                    <br>
+                    <p>Si le niveau 10 est atteint on discutera.</p>
                 </div>
 
-                    <div class="passive-ability">
-                        <h3>Passif (débloqué au lvl 5+): Fourth Wall</h3>
-                        <p>Un voile d'aura défensive entoure l'esprit de Kim Dokja en permanence.</p>
-                        <h4>Effets passifs:</h4>
-                        <ul>
-                            <li><span class="blue-diamond">🔹</span> <strong>Immunité mentale élevée</strong>: Résiste fortement à l'hypnose, aux lectures d'aura, aux paniques mentales.</li>
-                            <li><span class="blue-diamond">🔹</span> <strong>Réduction de la douleur physique</strong> (≈ 40%).</li>
-                            <li><span class="blue-diamond">🔹</span> <strong>Floutage d'identité</strong>: ses émotions et sa « présence » sont difficiles à lire ; son aura paraît faible ou banale.</li>
-                            <li><span class="blue-diamond">🔹</span> <strong>Blocage d'analyse</strong>: les utilisateurs comme Isen, Vaughn ou Keen ne peuvent pas scanner ses stats.</li>
-                            <li><span class="blue-diamond">🔹</span> <strong>Affaiblissement si émotionnel</strong>: plus il est investi affectivement dans un combat, moins la Fourth Wall le protège.</li>
-                        </ul>
-                            </div>
-                            </div>
+                <div class="passive-ability">
+                    <h3>Passif (Actif en permanence): Fourth Wall</h3>
+                    <p>Le "Quatrième Mur" est une anomalie cognitive permanente. L'esprit de Dokja est isolé de la réalité par une couche d'aura dense et chaotique. Concrètement, cela agit comme un filtre absolu : il bloque les intrusions mentales (télépathie, peur, interrogatoire) et convertit la douleur physique en simple information, lui permettant de rester froid et lucide même en étant mortellement blessé. De plus, cette couche brouille les tentatives d'analyse externes : ceux qui essaient de lire son niveau reçoivent des données erronées ou illisibles.</p>
+                </div>
+            </div>
 
-                <div class="aura-description">
-                    <h3>Description de l'aura:</h3>
-                    <div class="aura-box">
-                        <div class="aura-visual"></div>
-                        <p>Bleu mêlé de blanc — froide, calme, aérienne, presque invisible à distance, rappelant le papier ou le vent.</p>
-                            </div>
-                            </div>
-            </section>
+            <div class="aura-description">
+                <h3>Manifestation de l'aura:</h3>
+                <div class="aura-box">
+                    <div class="aura-visual"></div>
+                    <p>Bleu nuit mêlé d'étincelles blanches — froide, texturée comme des pages qui se tournent, elle semble "écrire" la réalité autour de lui.</p>
+                </div>
+            </div>
+        </section>
 
-            <section id="deck" class="section">
-                <h2><span class="card-icon">🃏</span> Deck</h2>
-                <p class="deck-intro">Cartes pré-sélectionnables avant activation.</p>
-                <div class="card-container">
-                    <div class="card" data-card="1">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 1</h3>
-                                <p>Bookmark</p>
-                            </div>
-                            <div class="card-back">
-                                <h3>Bookmark</h3>
-                                <p>Permet de <strong>copier une aptitude active</strong> déjà observée.</p>
-                                <h4>Conditions:</h4>
-                                <ul>
-                                    <li>doit avoir étudié l'aptitude auparavant</li>
-                                    <li>la copie varie de <strong>50% à 100%</strong> selon sa compréhension (déterminable par la diff de trick)</li>
-                                    <li>une seule copie active à la fois au high, 2 au god, 3 à l'exo, 4 au niveau 8</li>
-                                    <li>2 bookmark jusqu'au elite, 3 au high, 4 au god, 6 au niveau 8</li>
-                                    <li><strong>restriction</strong>: il doit avoir <strong>au moins 3 stats ≥ la moitié de celles de la cible</strong></li>
-                                </ul>
-                    </div>
+        <section id="deck" class="section">
+            <h2><span class="card-icon">🃏</span> Deck (4 Slots Mémoire)</h2>
+            <p class="deck-intro">Capacités stockées (Bookmarks). Max Actives simultanées : 2.</p>
+            <div class="card-container">
+                <!-- Slot 1 -->
+                <div class="card" data-card="1">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Bookmark I</h3>
+                            <p>Disponible</p>
                         </div>
+                        <div class="card-back">
+                            <h3><i class="fas fa-slash"></i> Vide</h3>
+                            <p>Aucune capacité mémorisée.</p>
+                            <p style="font-style: italic; color: #7f8c8d;">En attente d'étude.</p>
                         </div>
-                    <div class="card" data-card="2">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 2</h3>
-                                <p>Character List</p>
+                    </div>
+                </div>
+                <!-- Slot 2 -->
+                <div class="card" data-card="2">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Bookmark II</h3>
+                            <p>Disponible</p>
                         </div>
-                            <div class="card-back">
-                                <h3>Character List</h3>
-                                <p>Révèle <strong>niveau</strong>, type (projectile, physique, mental, élémentaire, etc...), et <strong>stats</strong> de la cible.</p>
-                                <p>Toutes les stats si cible plus faible, sinon (5 - différence) stats (minimum 1).</p>
-                                <p>Prio les stats les plus fortes</p>
-                </div>
-                </div>
-                    </div>
-                    <div class="card" data-card="3">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <h3>Carte 3</h3>
-                                <p>Calm Observation</p>
-                    </div>
-                            <div class="card-back">
-                                <h3>Calm Observation</h3>
-                                <p>Pendant 10 secondes:</p>
-                                <ul>
-                                    <li>perception ralentie</li>
-                                    <li>précision augmentée</li>
-                                    <li>meilleure lecture des trajectoires</li>
-                                </ul>
-                </div>
-    </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="stats" class="section">
-                <h2>Stats</h2>
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="stat-label">Power</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 40%"></div>
+                        <div class="card-back">
+                            <h3><i class="fas fa-slash"></i> Vide</h3>
+                            <p>Aucune capacité mémorisée.</p>
+                            <p style="font-style: italic; color: #7f8c8d;">En attente d'étude.</p>
                         </div>
-                        <div class="stat-value">5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">Speed</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 40%"></div>
-                        </div>
-                        <div class="stat-value">5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">Trick</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 80%"></div>
-                        </div>
-                        <div class="stat-value">8</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">Recovery</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 40%"></div>
-                        </div>
-                        <div class="stat-value">5</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">Defense</div>
-                        <div class="stat-bar">
-                            <div class="stat-fill" style="width: 30%"></div>
-                        </div>
-                        <div class="stat-value">4</div>
                     </div>
                 </div>
-
-                <div class="stat-chart">
-                    <canvas id="statChart"></canvas>
-                </div>
-            </section>
-
-            <section id="story" class="section">
-                <h2>Histoire</h2>
-                <div class="story-content">
-                    <p>Kim Dokja a grandi dans un foyer difficile où les livres constituaient son seul refuge. Sa mère, qui travaillait souvent, lui offrait régulièrement de nouveaux romans. Il développa une obsession pour l'analyse des histoires, des personnages, des schémas narratifs.</p>
-
-                    <p>À l'adolescence, il découvrit un roman en ligne nommé <em>Ways of Survival</em>. Il devint son unique lecteur fidèle. L'histoire devint son échappatoire et sa formation : il analysait chaque mise à jour, formulait des théories, apprenait à comprendre les gens comme des personnages.</p>
-
-                    <p>Sa capacité s'éveilla tôt, sous forme d'une perception étrange du monde, comme s'il n'en faisait que lire les lignes. Cette « Fourth Wall » le protégea des brimades et d'un quotidien difficile, mais l'éloigna émotionnellement des autres.</p>
-
-                    <p>À Rowden, sa capacité fut classée comme atypique, difficile à mesurer, presque impossible à lire. Son aura semblera faible, alors qu'il manipule subtilement les interactions, influence les dynamiques de groupe et gagne la confiance des autres… avant de les utiliser comme des pièces dans son histoire.</p>
-                </div>
-            </section>
-
-            <section id="appearance" class="section">
-                <h2>Description Physique</h2>
-                <div class="appearance-container">
-                    <div class="appearance-image">
-                        <img src="apparence.jpeg" alt="Kim Dokja" id="character-image">
-                        <img src="https://styles.redditmedia.com/t5_2fmodd/styles/image_widget_3xdvijhl09h71.jpg?format=pjpg&s=d7ced27cb4e02ad5c4100ca2c8be59f25145a854" alt="Image non disponible" class="fallback-image" id="fallback-image">
-                    </div>
-                    <div class="appearance-content">
-                        <ul>
-                            <li>silhouette élancée, légèrement plus mince que la moyenne</li>
-                            <li>peau pâle, cernes légères (insomnie + lectures tardives)</li>
-                            <li>cheveux noirs légèrement décoiffés, mèches tombant sur les yeux</li>
-                            <li>regard sombre mais lointain, difficile à lire à cause de la Fourth Wall</li>
-                            <li>vêtements sobres : vestes sombres, chemises simples, rien de voyant</li>
-                            <li>posture détendue mais calculatrice, gestes contrôlés, toujours observateur</li>
-                        </ul>
+                <!-- Slot 3 -->
+                <div class="card" data-card="3">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Bookmark III</h3>
+                            <p>Disponible</p>
+                        </div>
+                        <div class="card-back">
+                            <h3><i class="fas fa-slash"></i> Vide</h3>
+                            <p>Aucune capacité mémorisée.</p>
+                            <p style="font-style: italic; color: #7f8c8d;">En attente d'étude.</p>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
+                <!-- Slot 4 -->
+                <div class="card" data-card="4">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Bookmark IV</h3>
+                            <p>Disponible</p>
+                        </div>
+                        <div class="card-back">
+                            <h3><i class="fas fa-slash"></i> Vide</h3>
+                            <p>Aucune capacité mémorisée.</p>
+                            <p style="font-style: italic; color: #7f8c8d;">En attente d'étude.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <footer>
-            <p>Fiche authentique de Myriam.</p>
-        </footer>
-    </div>
+        <!-- SECTION ANALYSE -->
+        <section id="analysis" class="section">
+            <h2><i class="fas fa-search"></i> Registre d'Analyse</h2>
+            <p>Base de données des capacités observées.</p>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
-    <script>
-        // Gestion de l'image et de son fallback de manière moderne
-        document.addEventListener('DOMContentLoaded', function() {
-            const characterImage = document.getElementById('character-image');
-            const fallbackImage = document.getElementById('fallback-image');
-            
-            characterImage.addEventListener('error', function() {
-                characterImage.style.display = 'none';
-                fallbackImage.style.display = 'block';
-            });
-        });
-    </script>
+            <table class="analysis-table">
+                <thead>
+                <tr>
+                    <th style="width: 30%;">Nom de Capacité</th>
+                    <th style="width: 15%;">Niveau Est.</th>
+                    <th style="width: 55%;">Analyse / Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Lignes vides pour le remplissage futur -->
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="stats" class="section">
+            <h2>Statistiques (Base)</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-label">Power</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 50%"></div>
+                    </div>
+                    <div class="stat-value">5.0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Speed</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 50%"></div>
+                    </div>
+                    <div class="stat-value">5.0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Trick</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 80%"></div>
+                    </div>
+                    <div class="stat-value">8.0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Recovery</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 50%"></div>
+                    </div>
+                    <div class="stat-value">5.0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Defense</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill" style="width: 40%"></div>
+                    </div>
+                    <div class="stat-value">4.0</div>
+                </div>
+            </div>
+            <p style="text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem;">Note : Ces statistiques fluctuent grandement selon les cartes activées.</p>
+
+            <div class="stat-chart">
+                <canvas id="statChart"></canvas>
+            </div>
+        </section>
+
+        <section id="story" class="section">
+            <h2>Dossier Personnel</h2>
+            <div class="story-content">
+                <p>Kim Dokja a toujours été un observateur. Élevé dans un environnement instable, il a appris très tôt que la survie dépendait de la capacité à lire l'humeur et les intentions des autres avant qu'ils ne passent à l'acte. Les livres étaient son refuge, lui apprenant des milliers de scénarios possibles pour chaque situation.</p>
+
+                <p>Son éveil tardif a révélé une capacité complexe, initialement confondue avec une simple "Intuition". Ce n'est qu'en analysant les combats des autres qu'il a compris qu'il pouvait réécrire sa propre structure d'aura pour mimer celle des autres. Son passif, le "Fourth Wall", s'est développé comme un mécanisme de défense contre les traumatismes émotionnels et physiques.</p>
+
+                <p>Arrivé à Rowden, il a rapidement gravi les échelons non pas par la brutalité, mais par la stratégie. Il est le "Roi" qui n'a pas besoin d'élever la voix. Il s'intéresse actuellement aux rumeurs concernant Wellston et un certain "Joker", voyant là une histoire qui mérite d'être étudiée de près.</p>
+            </div>
+        </section>
+
+        <section id="appearance" class="section">
+            <h2>Apparence</h2>
+            <div class="appearance-container">
+                <div class="appearance-content">
+                    <p>Kim Dokja possède une allure trompeusement frêle. De taille moyenne, avec des traits fins et une peau pâle, il passe souvent inaperçu dans la foule, ce qui sert ses intérêts.</p>
+                    <p>Il porte l'uniforme de Rowden avec une négligence calculée. Son trait le plus distinctif est son regard : sombre, insondable, donnant souvent l'impression qu'il regarde "à travers" son interlocuteur plutôt que son visage.</p>
+                    <p>Lorsqu'il active sa capacité, aucune manifestation physique majeure n'apparaît, hormis une légère lueur bleutée dans ses yeux et, pour les plus perceptifs, une sensation de froid statique dans l'air environnant.</p>
+                </div>
+                <div class="appearance-image">
+                    <img src="https://i.pinimg.com/736x/2e/6b/12/2e6b1254356946143236334517422403.jpg" alt="Kim Dokja" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
