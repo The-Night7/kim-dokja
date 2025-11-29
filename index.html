@@ -366,5 +366,17 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
+<script>
+    // Gestion de l'image et de son fallback de manière moderne
+    document.addEventListener('DOMContentLoaded', function() {
+        const characterImage = document.getElementById('character-image');
+        const fallbackImage = document.getElementById('fallback-image');
+
+        characterImage.addEventListener('error', function() {
+            characterImage.style.display = 'none';
+            fallbackImage.style.display = 'block';
+        });
+    });
+</script>
 </body>
 </html>
