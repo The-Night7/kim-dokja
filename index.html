@@ -6,6 +6,8 @@
     <title>Kim Dokja - Fiche de Personnage</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1"></script>
+    <script src="script.js"></script>
     <style>
         /* Styles conservés */
         .card { height: 350px; }
@@ -332,8 +334,11 @@
             </div>
             <p style="text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem;">Note : Ces statistiques fluctuent grandement selon les cartes activées.</p>
 
-            <div class="stat-chart">
-                <canvas id="statChart"></canvas>
+            <!-- Ajout du graphique radar pour visualiser les statistiques -->
+            <div class="stats-radar-container dark-mode">
+                <div class="stat-chart">
+                    <canvas id="statChart"></canvas>
+                </div>
             </div>
         </section>
 

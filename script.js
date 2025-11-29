@@ -1,10 +1,3 @@
-class Chart {
-    constructor(ctx, param2) {
-        
-    }
-
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation
     const navLinks = document.querySelectorAll('#main-nav a');
@@ -13,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             // Remove active class from all links and sections
             navLinks.forEach(link => link.classList.remove('active'));
             sections.forEach(section => section.classList.remove('active'));
-            
+
             // Add active class to clicked link
             this.classList.add('active');
-            
+
             // Get the target section and make it active
             const targetId = this.getAttribute('href').substring(1);
             document.getElementById(targetId).classList.add('active');
@@ -45,25 +38,57 @@ document.addEventListener('DOMContentLoaded', function() {
             }]
         },
         options: {
+            maintainAspectRatio: true,
+            responsive: true,
             scales: {
                 r: {
-                    angleLines: {
-                        display: true
-                    },
-                    suggestedMin: 0,
-                    suggestedMax: 10,
+                    min: 0,
+                    max: 10,
                     ticks: {
-                        stepSize: 2
-                    }
-                }
+                        stepSize: 1,
+                        display: false,
+                    },
+                    grid: {
+                        circular: false,
+                        color: 'rgba(255,255,255,0.1)', // Lignes de grille plus claires pour le mode sombre
+                    },
+                    angleLines: {
+                        color: 'rgba(255,255,255,0.2)', // Lignes d'angle plus claires pour le mode sombre
+                    },
+                    pointLabels: {
+                        color: '#ffffff', // Texte blanc pour le mode sombre
+                        font: {
+                            size: 14,
+                            weight: 'bold',
+                        },
+                    },
+                },
             },
             plugins: {
                 legend: {
-                    display: false
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw}`;
+                        }
+                    }
                 }
-            }
-        }
+            },
+            elements: {
+                line: {
+                    tension: 0 // Les lignes sont droites comme ça
+                }
+            },
+        },
     });
+
+    // Ajouter un effet de lueur après le rendu du graphique
+    setTimeout(() => {
+        const canvas = document.getElementById('statsRadarChart');
+        canvas.style.filter = 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.5))';
+    }, 100);
 
     // Card Flip Animation (optional enhancement)
     const cards = document.querySelectorAll('.card');
